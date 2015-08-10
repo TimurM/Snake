@@ -2,16 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <style media="screen">
-      #gameCanvas {
-        margin: 100px; 
-      }
-    </style>
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <canvas id="gameCanvas" width="600" height="600"></canvas>
-
+    <section>
+      <div class="current">
+          <img src="img/arrows.png" alt="arrows"/>
+          <h4>Snake is Getting Hungry!!!</h4>
+      </div>
+      <div class="instructions">
+          <h1>: Up</h1>
+          <h1>: Move</h1>
+          <h1>: Down</h1>
+      </div>
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+    </secion>
+    
     <script src="main.js"></script>
   </body>
 </html>
