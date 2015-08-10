@@ -86,3 +86,36 @@ var renderFrame = compose([
   drawGameOverScreen
 ].reverse())
 ```
+
+### Test Coverage:
+#####checkCollisionWithSelf() cases:
+* When the snake collides with itself
+* When the snake does not collide with itself
+
+######checkBoundryCollision() cases:
+* When the snake collides with the right boundary
+* When the snake collides with the left boundary
+* When the snake collides with the top boundary
+* When the snake collides with the bottom boundary
+* When the snake does not collide with any boundries
+
+#####moveEverything() cases:
+* When the snake moves right, it's position changes
+* When the snake moves left, it's position changes
+* When the snake moves top, it's position changes
+* When the snake moves down, it's position changes
+* When the snake eats an apple, it's position changes and it the size increases by 1
+
+#####updateSnakeDirection() cases:
+* When the snake is moving up and the user moves it left, it goes left
+* When the snake is moving down and the user moves it left, it goes left
+* When the snake is moving down and the user moves it right, it goes right
+* When the snake is moving up and the user moves it right, it goes right
+* When the snake is moving right and the user moves it down, it goes down
+* When the snake is moving right and the user moves it up, it goes up
+* When the snake is moving left and the user moves it down, it goes down
+* When the snake is moving left and the user moves it up, it goes up
+* When the snake is moving right, it does not reverse to go left
+* When the snake is moving left, it does not reverse to go right
+* When the snake is moving down, it does not reverse to go up
+* When the snake is moving up, it does not reverse to go down

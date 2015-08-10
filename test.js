@@ -18,7 +18,7 @@ var testCollisionWithSelf = function(testData) {
 
 ;[
  {
-   input: {
+   input: { //collides with itself
      snakeArray: [
        {
          x: 33,
@@ -78,7 +78,7 @@ var testCollisionWithSelf = function(testData) {
    }
  },
  {
-   input: {
+   input: { //does not collide with itself
      snakeArray: [
        {
          x: 33,
@@ -500,6 +500,28 @@ var testUpdateSnakeDirection = function(testData) {
    input: [
      {
        dir: "right"
+     },
+     "up"
+   ],
+   expected: {
+     dir: "up",
+   }
+  },
+ { //moving left and turning down
+   input: [
+     {
+       dir: "left"
+     },
+     "down"
+   ],
+   expected: {
+     dir: "down",
+   }
+  },
+ { //moving left and turning up
+   input: [
+     {
+       dir: "left"
      },
      "up"
    ],
