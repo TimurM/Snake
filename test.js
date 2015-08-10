@@ -424,3 +424,132 @@ var testMoveEverything = function(testData) {
    }
 ].forEach(testMoveEverything)
 console.log("All of moveEverything tests pass")
+
+var testUpdateSnakeDirection = function(testData) {
+  var input = testData.input;
+  var gameState = input[0];
+  var newDir = input[1];
+  var expected = testData.expected;
+
+  var actual = updateSnakeDirection(gameState, newDir)
+  var match = JSON.stringify(expected) === JSON.stringify(actual)
+  if (!match) {
+    console.log('expected',expected)
+    console.log('actual',actual)
+    process.exit(1)
+  }
+}
+
+;[
+ { //moving up and turning left
+   input: [
+     {
+       dir: "up"
+     },
+     "left"
+   ],
+   expected: {
+     dir: "left",
+   }
+  },
+ { //moving down and turning left
+   input: [
+     {
+       dir: "down"
+     },
+     "left"
+   ],
+   expected: {
+     dir: "left",
+   }
+  },
+ { //moving down and turning right
+   input: [
+     {
+       dir: "down"
+     },
+     "right"
+   ],
+   expected: {
+     dir: "right",
+   }
+  },
+ { //moving up and turning right
+   input: [
+     {
+       dir: "up"
+     },
+     "right"
+   ],
+   expected: {
+     dir: "right",
+   }
+  },
+ { //moving right and turning down
+   input: [
+     {
+       dir: "right"
+     },
+     "down"
+   ],
+   expected: {
+     dir: "down",
+   }
+  },
+ { //moving right and turning up
+   input: [
+     {
+       dir: "right"
+     },
+     "up"
+   ],
+   expected: {
+     dir: "up",
+   }
+  },
+ { //moving right and does not reverse
+   input: [
+     {
+       dir: "right"
+     },
+     "left"
+   ],
+   expected: {
+     dir: "right",
+   }
+  },
+ { //moving left and does not reverse
+   input: [
+     {
+       dir: "left"
+     },
+     "right"
+   ],
+   expected: {
+     dir: "left",
+   }
+  },
+ { //moving up and does not reverse
+   input: [
+     {
+       dir: "up"
+     },
+     "down"
+   ],
+   expected: {
+     dir: "up",
+   }
+  },
+ { //moving down and does not reverse
+   input: [
+     {
+       dir: "down"
+     },
+     "up"
+   ],
+   expected: {
+     dir: "down",
+   }
+  },
+].forEach(testUpdateSnakeDirection)
+console.log("All of updateSnakeDirection tests pass")
