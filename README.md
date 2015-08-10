@@ -92,7 +92,7 @@ var renderFrame = compose([
 * When the snake collides with itself
 * When the snake does not collide with itself
 
-######checkBoundryCollision() cases:
+#####checkBoundryCollision() cases:
 * When the snake collides with the right boundary
 * When the snake collides with the left boundary
 * When the snake collides with the top boundary
