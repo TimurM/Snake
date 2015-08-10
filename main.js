@@ -9,6 +9,8 @@ if (typeof window !== 'undefined') window.onload = function() {
   setInterval(function() {
     //updates the gameState
     gameState = updateGameState(gameState);
+
+    prevMax = (gameState.score > gameState.prevMaxScore ? gameState.score : gameState.prevMaxScore);
     // Checks if the snake exceeds the boundries of the board and if so, the game resets by creating a new gameState
     if (checkBoundryCollision(gameState)) gameState = createGameState(canvasElement, prevMax);
 
@@ -18,7 +20,6 @@ if (typeof window !== 'undefined') window.onload = function() {
 
   //listens for keydown event to see if direction has changed
   document.addEventListener('keydown', function(evt) {
-    prevMax = (gameState.score > gameState.prevMaxScore ? gameState.score : gameState.prevMaxScore);
     gameState = updateSnakeDirection(gameState, keyCodeToDirName(evt.which))
   }, false);
 
@@ -275,16 +276,12 @@ function randomColor() {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
-// input: <Map>, string
-// output: <Map>
 function colorRect(gameState, leftX, topY, width, height, drawColor) {
   //colors a rectangle with drawColor
   gameState.canvasContext.fillStyle = drawColor;
   gameState.canvasContext.fillRect(leftX, topY, width, height);
 };
 
-// input: <Map>, string
-// output: <Map>
 function strokeRect(gameState, leftX, topY, width, height, borderColor) {
   // creates the border with the borderColor
   gameState.canvasContext.strokeStyle = borderColor;
