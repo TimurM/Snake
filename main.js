@@ -220,10 +220,10 @@ function drawGameOverScreen(gameState) {
     var width = gameState.boardWidth;
     var height = gameState.boardHeight;
 
-    colorRect(gameState, 300, 350, 200, 50, 'green');
+    colorRect(gameState, width/2-100, height/2-25, 200, 50, 'green');
     gameState.canvasContext.fillStyle = 'white';
     gameState.canvasContext.font = "20px Arial";;
-    gameState.canvasContext.fillText("Play Again", 345, 380)
+    gameState.canvasContext.fillText("Play Again", width/2-50, height/2+5)
   }
   return gameState;
 }
